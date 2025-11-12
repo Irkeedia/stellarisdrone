@@ -1,16 +1,56 @@
+---
+import '../styles/global.css';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+		/>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body class="bg-black">
 		<slot />
 	</body>
 </html>
+<style is:global>
+	/* Ajoutez ici des styles globaux si nécessaire, par exemple pour les polices */
+	body {
+		font-family: 'Inter', sans-serif;
+	}
+
+	/* Style pour la barre de défilement */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #000;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #8B5CF6;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #7C3AED;
+	}
+</style>
 
 <style>
 	html,

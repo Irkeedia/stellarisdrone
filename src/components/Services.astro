@@ -1,0 +1,88 @@
+---
+import ServiceCard from './ServiceCard.astro';
+
+interface Service {
+    title: string;
+    description: string;
+    icon: string;
+    tags: string[];
+}
+
+const services: Service[] = [
+    {
+        title: 'Inspection de Toiture',
+        description:
+            "Photos et vidéos stabilisées pour évaluer l’état d’une toiture ou documenter un sinistre sans engager d’intervention lourde.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>`
+        ,
+        tags: ['4K HDR', 'Rapport PDF', 'Assurance']
+    },
+    {
+        title: 'Cartographie & SIG',
+        description:
+            "Orthophotos, relevés de terrain et suivi d’évolution pour les exploitations agricoles, lotissements ou chantiers locaux.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>`
+        ,
+        tags: ['SIG', 'Géoréférencé', '0.7cm/px']
+    },
+    {
+        title: 'Production Créative',
+        description:
+            "Mise en valeur de biens, domaines viticoles ou événements avec une narration aérienne fluide et lumineuse.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>`
+        ,
+        tags: ['Cinématique', 'Storyboarding', 'Post-prod']
+    },
+    {
+        title: 'Portraits & projets personnels',
+        description:
+            "Souvenirs de famille, portraits solo ou images de communication pour artisans, capturés dans vos décors préférés.",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 .552-.895 1-2 1s-2-.448-2-1 .895-1 2-1 2 .448 2 1z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.105 1.343-2 3-2s3 .895 3 2v4c0 1.105-1.343 2-3 2s-3-.895-3-2m0-4V7c0-1.105-1.343-2-3-2S6 5.895 6 7v8c0 1.105 1.343 2 3 2s3-.895 3-2" />
+            </svg>`
+        ,
+        tags: ['Lifestyle', 'Couleurs naturelles', 'Livraison HD']
+    }
+];
+
+---
+<section id="services" class="relative flex min-h-screen items-center bg-black py-32 text-white">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.25),transparent_55%)]"></div>
+    <div class="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_50%)]"></div>
+    <div class="container mx-auto max-w-6xl px-6">
+        <div class="mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+                <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-purple-200">Solutions Drone</span>
+                <h2 class="mt-6 text-4xl font-bold leading-tight md:text-5xl">
+                    Nous concevons des missions 
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-indigo-300">sur mesure</span>
+                    pour chaque projet.
+                </h2>
+            </div>
+            <p class="max-w-xl text-sm leading-relaxed text-gray-300 md:text-base">
+                Mathieu Toffolon, télépilote déclaré et titulaire des CATT & CATS DGAC, intervient sans lourdes expertises mais avec un cadre légal maîtrisé.
+                Les missions courtes (toitures, terrains, portraits) sont réalisées dans un rayon d’environ 135 km autour de Montseret.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+            {services.map((service) => (
+                <ServiceCard {...service} />
+            ))}
+        </div>
+        <div class="mt-14 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:flex-row md:items-center md:justify-between">
+            <div class="space-y-1 text-sm text-gray-300 md:text-base">
+                <p class="font-semibold text-white">Disponibilité rapide dans l’Aude, l’Hérault et la Haute-Garonne.</p>
+                <p>Brief téléphonique, plan de vol simplifié et livraison des fichiers HD sous 72h en moyenne.</p>
+            </div>
+            <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/20 transition hover:scale-105">Réserver un créneau</a>
+        </div>
+    </div>
+</section>
