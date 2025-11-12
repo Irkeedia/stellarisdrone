@@ -1,4 +1,5 @@
 ---
+import ContactForm from './ContactForm';
 // src/components/Contact.astro
 ---
 <section id="contact" class="relative flex min-h-screen items-center bg-black py-32 text-white">
@@ -31,35 +32,8 @@
         </div>
         <div class="flex-1 rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-purple-500/10 backdrop-blur-2xl">
             <h3 class="text-2xl font-semibold text-white">Décrivez votre projet</h3>
-            <p class="mt-2 text-sm text-gray-300">Indiquez-nous la localisation, les échéances et les livrables visés pour recevoir un devis précis.</p>
-            <form class="mt-6 space-y-5">
-                <div class="grid gap-4 md:grid-cols-2">
-                    <label class="flex flex-col text-sm text-gray-300">
-                        Nom
-                        <input type="text" placeholder="Entreprise / Nom" class="mt-2 rounded-2xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50" />
-                    </label>
-                    <label class="flex flex-col text-sm text-gray-300">
-                        Email
-                        <input type="email" placeholder="nom@domaine.com" class="mt-2 rounded-2xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50" />
-                    </label>
-                </div>
-                <label class="flex flex-col text-sm text-gray-300">
-                    Type de mission
-                    <select class="mt-2 rounded-2xl border border-white/10 bg-black/50 px-4 py-3 text-white focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50">
-                        <option class="bg-black" value="inspection">Inspection / toiture</option>
-                        <option class="bg-black" value="cartographie">Cartographie légère / terrain</option>
-                        <option class="bg-black" value="creative">Photo / vidéo immobilière</option>
-                        <option class="bg-black" value="portrait">Portrait / projet personnel</option>
-                        <option class="bg-black" value="autre">Autre besoin</option>
-                    </select>
-                </label>
-                <label class="flex flex-col text-sm text-gray-300">
-                    Détails supplémentaires
-                    <textarea rows="4" placeholder="Zone d’intervention, contraintes, délais…" class="mt-2 rounded-2xl border border-white/10 bg-black/50 px-4 py-3 text-white placeholder:text-gray-500 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500/50"></textarea>
-                </label>
-                <button type="submit" class="w-full rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/20 transition hover:scale-[1.02]">Envoyer la demande</button>
-                <p class="text-xs leading-relaxed text-gray-400">En soumettant ce formulaire, vous acceptez que Stellaris Drone traite vos informations pour vous répondre. Aucune donnée n’est partagée avec des tiers.</p>
-            </form>
+            <p class="mt-2 text-sm text-gray-300">Indiquez-moi la localisation, les échéances et les livrables visés pour recevoir un devis précis.</p>
+            <ContactForm client:load />
         </div>
     </div>
 </section>
