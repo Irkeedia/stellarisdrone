@@ -4,7 +4,7 @@ import type { FormEvent } from "react";
 type SubmissionStatus = "idle" | "sending" | "success" | "error";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const ACCESS_KEY = "8d1b3a1c-e865-4d8f-8593-f993f7a8874f";
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY;
 
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-stone-200 placeholder:text-stone-600 focus:border-gold-400/50 focus:outline-none focus:ring-1 focus:ring-gold-400/30 transition-colors";
