@@ -1,88 +1,85 @@
 ---
-import ServiceCard from './ServiceCard.astro';
-
-interface Service {
-    title: string;
-    description: string;
-    icon: string;
-    tags: string[];
-}
-
-const services: Service[] = [
-    {
-        title: 'Inspection de Toiture',
-        description:
-            "Photos et vidéos stabilisées pour évaluer l’état d’une toiture ou documenter un sinistre sans engager d’intervention lourde.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>`
-        ,
-        tags: ['4K HDR', 'Rapport PDF', 'Assurance']
-    },
-    {
-        title: 'Cartographie & SIG',
-        description:
-            "Orthophotos, relevés de terrain et suivi d’évolution pour les exploitations agricoles, lotissements ou chantiers locaux.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>`
-        ,
-        tags: ['SIG', 'Géoréférencé', '0.7cm/px']
-    },
-    {
-        title: 'Production Créative',
-        description:
-            "Mise en valeur de biens, domaines viticoles ou événements avec une narration aérienne fluide et lumineuse.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>`
-        ,
-        tags: ['Cinématique', 'Storyboarding', 'Post-prod']
-    },
-    {
-        title: 'Portraits & projets personnels',
-        description:
-            "Souvenirs de famille, portraits solo ou images de communication pour artisans, capturés dans vos décors préférés.",
-        icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 .552-.895 1-2 1s-2-.448-2-1 .895-1 2-1 2 .448 2 1z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.105 1.343-2 3-2s3 .895 3 2v4c0 1.105-1.343 2-3 2s-3-.895-3-2m0-4V7c0-1.105-1.343-2-3-2S6 5.895 6 7v8c0 1.105 1.343 2 3 2s3-.895 3-2" />
-            </svg>`
-        ,
-        tags: ['Lifestyle', 'Couleurs naturelles', 'Livraison HD']
-    }
-];
-
 ---
-<section id="services" class="relative flex min-h-screen items-center bg-black py-32 text-white">
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.25),transparent_55%)]"></div>
-    <div class="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_right,rgba(99,102,241,0.2),transparent_50%)]"></div>
-    <div class="container mx-auto max-w-6xl px-6">
-        <div class="mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-                <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-purple-200">Solutions Drone</span>
-                <h2 class="mt-6 text-4xl font-bold leading-tight md:text-5xl">
-                    Nous concevons des missions 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-fuchsia-400 to-indigo-300">sur mesure</span>
-                    pour chaque projet.
-                </h2>
-            </div>
-            <p class="max-w-xl text-sm leading-relaxed text-gray-300 md:text-base">
-                Mathieu Toffolon, télépilote déclaré et titulaire des CATT & CATS DGAC, intervient sans lourdes expertises mais avec un cadre légal maîtrisé.
-                Les missions courtes (toitures, terrains, portraits) sont réalisées dans un rayon d’environ 135 km autour de Montseret.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
-                <ServiceCard {...service} />
-            ))}
-        </div>
-        <div class="mt-14 flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl md:flex-row md:items-center md:justify-between">
-            <div class="space-y-1 text-sm text-gray-300 md:text-base">
-                <p class="font-semibold text-white">Disponibilité rapide dans l’Aude, l’Hérault et la Haute-Garonne.</p>
-                <p>Brief téléphonique, plan de vol simplifié et livraison des fichiers HD sous 72h en moyenne.</p>
-            </div>
-            <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/20 transition hover:scale-105">Réserver un créneau</a>
-        </div>
+
+<section id="services" class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16 lg:mb-20">
+      <span class="text-gold-400 text-xs uppercase tracking-[0.4em] font-semibold">Ce que je propose</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 text-stone-100">
+        Trois expertises,<br />un seul interlocuteur.
+      </h2>
     </div>
+
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Inspection -->
+      <div class="group rounded-3xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:border-gold-400/30 hover:bg-neutral-900/80">
+        <div class="w-12 h-12 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-stone-100 mb-3">Inspection aérienne</h3>
+        <p class="text-stone-400 text-sm leading-relaxed mb-4">
+          Photos et vidéos HD de toitures, terrains et bâtiments pour documenter l'état d'un bien. Idéal pour préparer un diagnostic ou constituer un dossier.
+        </p>
+        <p class="text-xs text-stone-500 leading-relaxed mb-6 border-l-2 border-gold-400/30 pl-3">
+          Je fournis les clichés bruts et retouchés en haute définition. Pour une analyse technique, je recommande de confier les images à un expert du bâtiment ou un couvreur qualifié.
+        </p>
+        <ul class="space-y-2 text-sm text-stone-400 mb-8">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Photos HD + Vidéo 4K</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Livraison cloud sous 48h</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Rapport visuel PDF</li>
+        </ul>
+        <div class="flex items-baseline gap-1">
+          <span class="text-2xl font-display font-bold text-stone-100">190€</span>
+          <span class="text-xs text-stone-500">à partir de</span>
+        </div>
+      </div>
+
+      <!-- Commercial -->
+      <div class="group rounded-3xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:border-gold-400/30 hover:bg-neutral-900/80">
+        <div class="w-12 h-12 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-stone-100 mb-3">Captation commerciale</h3>
+        <p class="text-stone-400 text-sm leading-relaxed mb-6">
+          Photos et vidéos aériennes pour valoriser un bien immobilier, un domaine viticole, un commerce ou toute activité nécessitant des visuels d'impact.
+        </p>
+        <ul class="space-y-2 text-sm text-stone-400 mb-8">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Photos retouchées + Vidéo montée</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Formats web & print</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Storyboard personnalisé</li>
+        </ul>
+        <div class="flex items-baseline gap-1">
+          <span class="text-2xl font-display font-bold text-stone-100">250€</span>
+          <span class="text-xs text-stone-500">à partir de</span>
+        </div>
+      </div>
+
+      <!-- Événementiel -->
+      <div class="group rounded-3xl border border-neutral-800 bg-neutral-900 p-8 transition-all duration-300 hover:border-gold-400/30 hover:bg-neutral-900/80">
+        <div class="w-12 h-12 rounded-2xl bg-gold-400/10 flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+          </svg>
+        </div>
+        <h3 class="font-display text-xl font-semibold text-stone-100 mb-3">Couverture événementielle</h3>
+        <p class="text-stone-400 text-sm leading-relaxed mb-6">
+          Captation aérienne pour fêtes locales, événements sportifs, mariages ou manifestations culturelles. Des images uniques qui immortalisent vos temps forts.
+        </p>
+        <ul class="space-y-2 text-sm text-stone-400 mb-8">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Drone + photos au sol</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Montage highlights vidéo</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-gold-400"></span>Demi-journée ou journée</li>
+        </ul>
+        <div class="flex items-baseline gap-1">
+          <span class="text-2xl font-display font-bold text-stone-100">350€</span>
+          <span class="text-xs text-stone-500">demi-journée</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

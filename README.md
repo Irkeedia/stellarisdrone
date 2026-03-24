@@ -1,62 +1,72 @@
 # 🚁 Stellaris Drone
 
-> Site web professionnel pour services de photographie et vidéographie aérienne par drone en Occitanie
+> Site vitrine professionnel — Services de prise de vue aérienne par drone en Occitanie
 
 ![Astro](https://img.shields.io/badge/Astro-5.15-BC52EE?logo=astro&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Latest-3178C6?logo=typescript&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel&logoColor=white)
 
 ## 📖 À propos
 
-**Stellaris Drone** est le site vitrine de Mathieu Toffolon, télépilote professionnel indépendant certifié DGAC (CATT & CATS) basé dans l'Aude. Le site présente une gamme complète de services de prise de vue aérienne pour professionnels et particuliers en Occitanie.
+**Stellaris Drone** est le site vitrine de Mathieu Toffolon, télépilote professionnel indépendant certifié DGAC (CATT & CATS) basé dans l'Aude.
+Le site présente ses services de prise de vue aérienne pour professionnels et particuliers en Occitanie, avec un portfolio interactif, un simulateur de tarifs et un formulaire de contact.
 
 ### Services proposés
 
-- **Inspection de Toiture** - Photos et vidéos 4K HDR pour évaluer l'état d'une toiture ou documenter un sinistre
-- **Cartographie & SIG** - Orthophotos géoréférencées et relevés de terrain pour exploitations agricoles et chantiers
-- **Production Créative** - Mise en valeur cinématique de biens immobiliers, domaines viticoles et événements
-- **Portraits & Projets Personnels** - Souvenirs de famille et images de communication pour artisans
+- **Inspection de Toiture** — Photos et vidéos 4K HDR pour évaluer l'état d'une toiture ou documenter un sinistre
+- **Captation Commerciale** — Mise en valeur immobilière, domaines viticoles, événements
+- **Inspection Terrain** — Orthophotos haute résolution, suivi parcellaire et avancement chantier
+- **Couverture Événementielle** — Survol drone de festivals, rassemblements agricoles, marchés
+
+### Fonctionnalités du site
+
+- **Portfolio** — Carrousel horizontal draggable avec 10 réalisations illustrées
+- **Simulateur de tarifs** — Calcul interactif selon type de prestation, durée et options
+- **Formulaire de contact** — Envoi via Web3Forms (aucun backend nécessaire)
+- **Pages légales** — Mentions légales et politique de confidentialité
 
 ## 🛠️ Technologies
 
-Ce site web moderne est construit avec :
-
-- **[Astro](https://astro.build)** - Framework web performant avec Islands Architecture
-- **[React](https://react.dev)** - Composants interactifs (formulaire de contact)
-- **[TypeScript](https://www.typescriptlang.org/)** - Typage statique pour plus de robustesse
-- **[TailwindCSS](https://tailwindcss.com)** - Framework CSS utility-first pour un design moderne
-- **Design System** - Palette de couleurs purple/fuchsia/indigo avec effets glassmorphism
+- **[Astro](https://astro.build)** — Framework web performant, Islands Architecture, rendu statique
+- **[React](https://react.dev)** — Composants interactifs (formulaire, portfolio, simulateur de tarifs)
+- **[TypeScript](https://www.typescriptlang.org/)** — Typage statique
+- **[TailwindCSS](https://tailwindcss.com)** — Utility-first CSS avec palette gold/neutral personnalisée
+- **[Web3Forms](https://web3forms.com)** — Service d'envoi de formulaires sans backend
+- **[Vercel](https://vercel.com)** — Hébergement et déploiement continu
 
 ## 🚀 Structure du projet
 
 ```text
 stellarisdrone/
-├── public/                      # Assets statiques (vidéos, images)
+├── public/                      # Assets statiques (images portfolio, vidéos)
 ├── src/
 │   ├── assets/                  # Images optimisées par Astro
-│   ├── components/              # Composants réutilisables
-│   │   ├── About.astro         # Section À propos
-│   │   ├── Approach.astro      # Méthodologie de travail
-│   │   ├── Contact.astro       # Section contact
-│   │   ├── ContactForm.tsx     # Formulaire React interactif
-│   │   ├── Footer.astro        # Pied de page
-│   │   ├── Header.astro        # Navigation principale
-│   │   ├── Hero.astro          # Section héro avec CTA
-│   │   ├── ServiceCard.astro   # Carte de service
-│   │   ├── Services.astro      # Grille des services
-│   │   └── Welcome.astro       # Message d'accueil
+│   ├── components/
+│   │   ├── About.astro          # Section À propos
+│   │   ├── Approach.astro       # Méthodologie de travail
+│   │   ├── Contact.astro        # Section contact
+│   │   ├── ContactForm.tsx      # Formulaire React (Web3Forms)
+│   │   ├── Footer.astro         # Pied de page
+│   │   ├── Header.astro         # Navigation principale
+│   │   ├── Hero.astro           # Section héro avec vidéo de fond
+│   │   ├── Portfolio.tsx        # Carrousel portfolio draggable
+│   │   ├── PricingCalculator.tsx# Simulateur de tarifs interactif
+│   │   ├── ServiceCard.astro    # Carte de service
+│   │   ├── Services.astro       # Grille des services
+│   │   └── Welcome.astro        # Message d'accueil
 │   ├── layouts/
-│   │   └── Layout.astro        # Layout principal avec meta tags
-│   ├── pages/                   # Pages du site (routing auto)
-│   │   ├── index.astro         # Page d'accueil
+│   │   └── Layout.astro         # Layout principal avec meta tags SEO
+│   ├── pages/
+│   │   ├── index.astro          # Page d'accueil
 │   │   ├── mentions-legales.astro
 │   │   └── politique-confidentialite.astro
 │   └── styles/
-│       └── global.css          # Styles globaux et Tailwind directives
-├── astro.config.mjs            # Configuration Astro
-├── tailwind.config.cjs         # Configuration TailwindCSS
-└── tsconfig.json               # Configuration TypeScript
+│       └── global.css           # Styles globaux et Tailwind directives
+├── astro.config.mjs             # Configuration Astro
+├── tailwind.config.cjs          # Configuration TailwindCSS (palette gold)
+└── tsconfig.json                # Configuration TypeScript
 ```
 
 ## 📦 Installation
@@ -129,31 +139,40 @@ Permet de tester le build de production localement avant le déploiement.
 
 ## 🎨 Personnalisation
 
-### Couleurs et design
+### Palette de couleurs
 
-Le thème utilise une palette purple/fuchsia/indigo définie dans [tailwind.config.cjs](tailwind.config.cjs). Les effets visuels incluent :
+Le thème utilise une palette **gold / neutral** personnalisée définie dans [tailwind.config.cjs](tailwind.config.cjs) :
 
-- Gradients animés
-- Glassmorphism avec `backdrop-blur`
-- Ombres colorées (`shadow-purple-500/30`)
-- Effets de survol et transitions
+- **Gold** — Couleur d'accent (CTA, titres, accents)
+- **Neutral / Stone** — Tons sombres pour le fond et le texte
 
 ### Composants
 
-Les composants sont modulaires et réutilisables :
-- `.astro` pour les composants statiques
-- `.tsx` pour les composants React interactifs (ex: formulaires)
+- `.astro` — Composants statiques (SEO, layout, sections)
+- `.tsx` — Composants React interactifs (formulaire, portfolio, simulateur)
 
-## 🌍 Déploiement
+## 🌍 Déploiement sur Vercel
 
-Le site Astro peut être déployé sur diverses plateformes :
+Le site est déployé automatiquement sur **Vercel** lors de chaque push sur `main`.
 
-- **Vercel** - `npm run build` puis déploiement automatique
-- **Netlify** - Support natif d'Astro
-- **Cloudflare Pages** - Excellent pour les sites statiques
-- **GitHub Pages** - Gratuit pour les projets open source
+### Variables d'environnement
 
-Consultez la [documentation Astro sur le déploiement](https://docs.astro.build/en/guides/deploy/) pour plus de détails.
+Le formulaire de contact utilise [Web3Forms](https://web3forms.com). La clé d'accès est actuellement en dur dans le composant. Pour la passer en variable d'environnement :
+
+| Variable | Valeur |
+|:---|:---|
+| `PUBLIC_WEB3FORMS_KEY` | `8d1b3a1c-e865-4d8f-8593-f993f7a8874f` |
+
+> Dans Vercel : **Settings → Environment Variables → Ajouter la variable ci-dessus.**
+
+### Build settings (Vercel)
+
+| Paramètre | Valeur |
+|:---|:---|
+| Framework Preset | Astro |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | `npm install` |
 
 ## 📄 Pages légales
 

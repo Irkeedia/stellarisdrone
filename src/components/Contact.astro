@@ -1,39 +1,67 @@
 ---
-import ContactForm from './ContactForm';
-// src/components/Contact.astro
+import ContactForm from './ContactForm.tsx';
 ---
-<section id="contact" class="relative flex min-h-screen items-center bg-black py-32 text-white">
-    <div class="absolute inset-0 -z-20 bg-gradient-to-b from-black via-slate-950 to-black"></div>
-    <div class="absolute right-10 top-20 -z-10 h-80 w-80 rounded-full bg-indigo-500/30 blur-3xl"></div>
-    <div class="container mx-auto flex max-w-5xl flex-col gap-12 px-6 lg:flex-row">
-        <div class="flex-1 space-y-6">
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-purple-200">Contact</span>
-            <h2 class="text-4xl font-bold leading-tight md:text-5xl">Parlons de votre prochaine mission</h2>
-            <p class="text-base leading-relaxed text-gray-300">
-                Basé à Montseret (Aude), j’étudie votre besoin et organise une mission drone dans un rayon d’environ 135 km autour de Narbonne, couvrant notamment Carcassonne, Béziers et Toulouse.
-            </p>
-            <div class="grid grid-cols-1 gap-4 text-sm text-gray-300">
-                <div class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
-                    <h3 class="text-white">Email direct</h3>
-                    <a href="mailto:toffolon.mathieu11@gmail.com" class="mt-2 block text-lg font-semibold text-white">toffolon.mathieu11@gmail.com</a>
-                    <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-400">Réponse sous 24h</p>
-                </div>
-                <div class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
-                    <h3 class="text-white">Téléphone</h3>
-                    <a href="tel:+33781730114" class="mt-2 block text-lg font-semibold text-white">07 81 73 01 14</a>
-                    <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-400">Devis & disponibilité</p>
-                </div>
-                <div class="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
-                    <h3 class="text-white">Adresse</h3>
-                    <p class="mt-2 text-lg font-semibold text-white">13 impasse des Aires, 11200 Montseret</p>
-                    <p class="mt-1 text-xs uppercase tracking-[0.3em] text-gray-400">Déplacements sur rendez-vous</p>
-                </div>
+
+<section id="contact" class="relative py-24 lg:py-32">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-gold-400/[0.03] to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="grid gap-12 lg:gap-20 lg:grid-cols-5">
+      <div class="lg:col-span-2 space-y-8">
+        <div>
+          <span class="text-gold-400 text-xs uppercase tracking-[0.4em] font-semibold">Contact</span>
+          <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 text-stone-100">
+            Parlons de votre projet
+          </h2>
+          <p class="text-stone-400 mt-4 leading-relaxed">
+            Décrivez votre besoin et recevez un devis personnalisé sous 24h. Déplacement inclus dans un rayon de 25 km autour de Montseret.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <a href="mailto:contact@stellarisdrone.com" class="flex items-center gap-4 rounded-2xl border border-neutral-800 bg-neutral-900 p-4 hover:border-gold-400/30 transition-colors group">
+            <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
             </div>
+            <div>
+              <p class="text-xs text-stone-500 mb-0.5">Email</p>
+              <p class="text-sm text-stone-200 group-hover:text-gold-400 transition-colors">contact@stellarisdrone.com</p>
+            </div>
+          </a>
+
+          <a href="tel:+33781730114" class="flex items-center gap-4 rounded-2xl border border-neutral-800 bg-neutral-900 p-4 hover:border-gold-400/30 transition-colors group">
+            <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-stone-500 mb-0.5">Téléphone</p>
+              <p class="text-sm text-stone-200 group-hover:text-gold-400 transition-colors">07 81 73 01 14</p>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-4 rounded-2xl border border-neutral-800 bg-neutral-900 p-4">
+            <div class="w-10 h-10 rounded-xl bg-gold-400/10 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs text-stone-500 mb-0.5">Zone d'intervention</p>
+              <p class="text-sm text-stone-200">Aude · Hérault · Haute-Garonne</p>
+            </div>
+          </div>
         </div>
-        <div class="flex-1 rounded-[2.5rem] border border-white/10 bg-white/5 p-8 shadow-2xl shadow-purple-500/10 backdrop-blur-2xl">
-            <h3 class="text-2xl font-semibold text-white">Décrivez votre projet</h3>
-            <p class="mt-2 text-sm text-gray-300">Indiquez-moi la localisation, les échéances et les livrables visés pour recevoir un devis précis.</p>
-            <ContactForm client:load />
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="rounded-3xl border border-neutral-800 bg-neutral-900 p-6 sm:p-8">
+          <ContactForm client:visible />
         </div>
+      </div>
     </div>
+  </div>
 </section>
