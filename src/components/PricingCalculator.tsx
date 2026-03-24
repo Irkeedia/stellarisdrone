@@ -72,7 +72,7 @@ const servicePackages: Record<ServiceType, { label: string; packages: ServicePac
 };
 
 const cities: City[] = [
-  { name: "Montseret", km: 0 },
+  { name: "Narbonne", km: 0 },
   { name: "Fabrezan", km: 4 },
   { name: "Boutenac", km: 6 },
   { name: "Ferrals-les-Corbières", km: 7 },
