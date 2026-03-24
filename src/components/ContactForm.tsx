@@ -3,6 +3,8 @@ import type { FormEvent } from "react";
 
 type SubmissionStatus = "idle" | "sending" | "success" | "error";
 
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
 const inputClass =
   "mt-1.5 w-full rounded-xl border border-neutral-800 bg-neutral-950 px-4 py-3 text-sm text-stone-200 placeholder:text-stone-600 focus:border-gold-400/50 focus:outline-none focus:ring-1 focus:ring-gold-400/30 transition-colors";
 const labelClass = "block text-xs font-medium text-stone-400 uppercase tracking-wider";
@@ -21,26 +23,18 @@ export default function ContactForm() {
     const formData = new FormData(form);
     const requesterName = formData.get("name")?.toString().trim();
 
-    const payload = {
-      name: formData.get("name")?.toString().trim(),
-      email: formData.get("email")?.toString().trim(),
-      phone: formData.get("phone")?.toString().trim(),
-      mission: formData.get("mission")?.toString(),
-      message: formData.get("message")?.toString().trim(),
-    };
-
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: { Accept: "application/json" },
+        body: formData,
       });
       const data = await response.json();
       if (data.success) {
         setStatus("success");
         const thanks = requesterName
-          ? `Merci ${requesterName}, un email de confirmation vous a été envoyé. Je reviens vers vous très vite.`
-          : "Message envoyé. Un email de confirmation vous a été envoyé.";
+          ? `Merci ${requesterName}, je reviens vers vous très vite.`
+          : "Message envoyé. Je vous recontacte rapidement.";
         setMessage(thanks);
         setToastMessage(thanks);
         form.reset();
@@ -100,6 +94,9 @@ export default function ContactForm() {
             className={inputClass + " resize-none"}
           />
         </label>
+
+        <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_KEY} />
+        <input type="hidden" name="subject" value="Nouvelle demande — Stellaris Drone" />
 
         <button
           type="submit"
