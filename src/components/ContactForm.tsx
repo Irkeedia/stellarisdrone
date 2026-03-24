@@ -95,7 +95,7 @@ export default function ContactForm() {
           />
         </label>
 
-        <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_WEB3FORMS_KEY} />
+        <input type="hidden" name="access_key" value={(import.meta.env.PUBLIC_WEB3FORMS_KEY || '').trim()} />
         <input type="hidden" name="subject" value="Nouvelle demande — Stellaris Drone" />
 
         <button
